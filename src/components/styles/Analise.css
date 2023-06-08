@@ -1,0 +1,36 @@
+.containerAnalize {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 5%;
+    gap: 3rem;
+  }
+  
+  .chart,
+  .tableData {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 600px;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(111, 124, 145, 0.25);
+    border-radius: 6px;
+  }
+  
+.chart{
+  padding-left: 1rem;
+}
+  .tableDataTitre ,.titreChart{
+    align-self:self-start;
+    padding: 10px;
+  }
+.titreChart{
+  padding-left: 0;
+}
+
+
+  @media screen and (max-width: 1700px) {
+    .chart, .tableData {
+      height: 400px;
+    }
+  }
+  

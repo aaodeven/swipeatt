@@ -1,0 +1,8 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    width:85%;
+    margin-left: 5%;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+  }

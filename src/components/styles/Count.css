@@ -1,0 +1,39 @@
+/*  counters */
+.countContainer {
+  display: flex;
+  gap: 3rem;
+  margin-left: 5%;
+  margin-top: 2rem;
+  
+}
+
+.countContainer h1 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 75px;
+  margin: 0;
+}
+
+
+.countContainer p{
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+margin-top: 0;
+}
+.count {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 150px;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(111, 124, 145, 0.25);
+  border-radius: 6px;
+}
+

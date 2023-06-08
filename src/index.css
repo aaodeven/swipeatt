@@ -1,0 +1,245 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: "kavoon";
+  src: url("./assets/fonts/Kavoon-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "inter";
+  src: url("./assets/fonts/Inter-VariableFont_slnt\,wght.ttf")
+    format("truetype");
+}
+
+/* header styles */
+.header {
+  box-sizing: border-box;
+  height: 54px;
+  left: -1px;
+  top: -1px;
+  background: #eb7736;
+  border-bottom: 1px solid #eb7736;
+}
+
+.logo {
+  position: absolute;
+  width: 194px;
+  height: 40.5px;
+  left: 29px;
+  top: 7.1px;
+  font-family: "Kavoon";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  color: #ffffff;
+}
+/* page login styles */
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: absolute;
+  width: 821px;
+  height: 438px;
+  left: 345px;
+  top: 25vh;
+  /* margin-bottom: 50vh; */
+  background: #ffffff;
+  border: 1px solid #eb7736;
+  border-radius: 20px;
+}
+.titreLogin {
+  width: 779px;
+  height: 100px;
+  left: 366px;
+  top: 361px;
+  font-family: "Kavoon";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  color: #eb7736;
+  font-family: "kavoon", sans-serif;
+}
+.inputLogin {
+  width: 461px;
+  height: 36.13px;
+  left: 525px;
+  top: 485.87px;
+  color: #eb7736;
+  border: 1px solid #eb7736;
+  border-radius: 20px;
+  margin-top: -8px;
+  padding-left: 10px;
+}
+
+.inputLogin::placeholder {
+  color: #eb7736;
+  font-family: "inter";
+}
+.labelLogin {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #eb7736;
+  margin-top: 24.25px;
+  margin-right: 42%;
+  z-index: 999;
+  background-color: #ffffff;
+  font-family: "inter";
+}
+.labelLogin1 {
+  margin-right: 47%;
+}
+.btnLogin {
+  width: 230px;
+  height: 38px;
+  left: 640px;
+  background: #eb7736;
+  border-radius: 20px;
+  color: #ffffff;
+  border: none;
+  margin-top: 2rem;
+}
+/* search bar style */
+.search {
+  box-sizing: border-box;
+  width: 365px;
+  height: 36px;
+  left: 117px;
+  top: 66px;
+  background: #ffffff;
+  border: 1px solid #eb7736;
+  border-radius: 20px;
+  margin-right: -1.5rem;
+  margin-left: 5%;
+  margin-top: 1.5%;
+  padding-left: 10px;
+}
+.search::placeholder {
+  color: #eb7736;
+  font-family: "inter";
+}
+.searchcontainer {
+  display: flex;
+}
+.searchIcon {
+  color: #eb7736;
+  margin-top: 2.2%;
+}
+
+/* les recipes styles */
+.Recipe {
+  display: flex;
+  width: 90%;
+  margin-top: 0.5rem;
+  margin-left: 5%;
+  background: rgba(189, 33, 215, 0.1);
+  border-radius: 10px;
+  gap: 5rem;
+}
+
+.imgRecipe {
+  width: 177.57px;
+  height: 72px;
+  left: 123px;
+  top: 206px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.divRecipe {
+  display: flex;
+  width: 20%;
+  gap: 7rem;
+}
+.divRecipe1 {
+  display: flex;
+  gap: 10px;
+  width: 40%;
+}
+
+.divRecipe4 {
+  margin-left: auto;
+}
+.recipeInfoContainer {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  gap: 6rem;
+  border-bottom: 1px solid #666666;
+}
+
+.recipeInfo {
+  display: flex;
+  width: 90%;
+  margin-left: 27%;
+  gap: 4rem;
+}
+
+.ArrowIcon {
+  color: #eb7736;
+  margin-left: 10px;
+}
+
+/* event component styles */
+
+.eventContainer {
+  display: flex;
+  width: 90%;
+  margin-top: 1rem;
+  margin-left: 5%;
+  gap: 1rem;
+}
+.event {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.eventModeration {
+  width: 252px;
+  height: 36px;
+  left: 117px;
+  top: 115px;
+  background: #bd21d7;
+  border-radius: 8px;
+}
+
+.eventModification {
+  width: 252px;
+  height: 36px;
+  left: 377px;
+  top: 115px;
+  background: #2ab9ff;
+  border-radius: 8px;
+}
+
+.eventValide {
+  width: 123px;
+  height: 36px;
+  left: 637px;
+  top: 115px;
+  background: #49b92d;
+  border-radius: 8px;
+}
+
+.eventArchive {
+  margin-left: auto;
+}
+.eventBtn {
+  margin-left: auto;
+}
+
+
+
+
+/* analize */
+
+
