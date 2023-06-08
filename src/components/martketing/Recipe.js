@@ -1,32 +1,19 @@
+import React, { useContext } from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import categories from "../../categories.json";
+import { MARKET_TEXT } from "../../constants/text";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import { DashboardContext } from "../../context/DashboardProvider";
 
-import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import categories from '../../categories.json';
-import { MARKET_TEXT } from '../../constants/text';
-import BottomNavigation from '@mui/material/BottomNavigation'
-
-export default function SelectRecettes() {
-  const [recette, setRecette] = React.useState('');
-  const [selectedRecipe, setSelectedRecipe] = React.useState(null);
-
-  const handleChange = (event) => {
-    const selectedRecipeId = event.target.value;
-    setRecette(selectedRecipeId);
-
-    const recipe = categories.categories
-      .flatMap(category => category.recipes)
-      .find(recipe => recipe.id === selectedRecipeId);
-
-    setSelectedRecipe(recipe);
-  };
-
+export default function Recipe() {
+  const {
+    recipe: { recipe, handleChangeRecipe , selectedRecipe},
+  } = useContext(DashboardContext);
   return (
     <div>
-
-     
       <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
         <InputLabel id="demo-simple-select-standard-label">
           <small>{MARKET_TEXT.recipes}</small>
@@ -34,16 +21,15 @@ export default function SelectRecettes() {
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value={recette}
-          onChange={handleChange}
+          value={recipe}
+          onChange={handleChangeRecipe}
           label="Categories"
         >
-       
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {categories.categories.flatMap(category =>
-            category.recipes.map(recipe => (
+          {categories.categories.flatMap((category) =>
+            category.recipes.map((recipe) => (
               <MenuItem key={recipe.id} value={recipe.id}>
                 {recipe.name}
               </MenuItem>
@@ -69,4 +55,3 @@ export default function SelectRecettes() {
     </div>
   );
 }
-

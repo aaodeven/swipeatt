@@ -1,32 +1,27 @@
-
-import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import categories from '../../categories.json';
-import { MARKET_TEXT } from '../../constants/text';
+import React, { useContext } from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import categories from "../../categories.json";
+import { MARKET_TEXT } from "../../constants/text";
+import { DashboardContext } from "../../context/DashboardProvider";
 
 export default function Categories() {
-  const [categori, setCategori] = React.useState('');
-  const [selectedCategory, setSelectedCategory] = React.useState(null);
 
-  const handleChange = (event) => {
-    const categoryId = event.target.value;
-    setCategori(categoryId);
-    const category = categories.categories.find((category) => category.id === categoryId);
-    setSelectedCategory(category);
-  };
+  const { category : { categoryName , handleChangeCategory } }  = useContext(DashboardContext)
 
   return (
     <div>
       <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
-        <InputLabel id="demo-simple-select-standard-label"><small>{MARKET_TEXT.categories}</small></InputLabel>
+        <InputLabel id="demo-simple-select-standard-label">
+          <small>{MARKET_TEXT.categories}</small>
+        </InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value={categori}
-          onChange={handleChange}
+          value={categoryName}
+          onChange={handleChangeCategory}
           label="Categories"
         >
           <MenuItem value="">
@@ -39,9 +34,9 @@ export default function Categories() {
           ))}
         </Select>
       </FormControl>
-      {selectedCategory && (
+      {/* {selectedCategory && (
         <div>
-          {/* <h2>{selectedCategory.name}</h2> */}
+           <h2>{selectedCategory.name}</h2> 
           {selectedCategory.recipes.map((recipe) => (
             // <div key={recipe.id}>
             //   <h3>{recipe.name}</h3>
@@ -56,7 +51,7 @@ export default function Categories() {
             console.log(recipe)
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 }
