@@ -28,9 +28,8 @@ export default function BasicDateRangePicker() {
           onChange={handleDateRangeChange}
         />
       </div>
-
-      {/* Render the filtered recipes */}
-      {filteredRecipes.length > 0 ? (
+       {/* Render the filtered recipes */}
+       {filteredRecipes.length > 0 ? (
         <div>
           {filteredRecipes.map((category) => (
             <div key={category.id}>

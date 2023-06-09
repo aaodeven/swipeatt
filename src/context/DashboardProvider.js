@@ -1,48 +1,31 @@
 import React, { createContext, useMemo, useState } from "react";
 
 import categories from "../categories.json";
+import { MenuItem } from "@mui/material";
 
 export const DashboardContext = createContext(null);
 
 function DashboardProvider({ children }) {
   // Categories state
-  const [categoryName, setCategoryName] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   // Recipes state
-  const [recipe, setRecipe] = useState("");
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   // filter state
   const [filteredRecipes, setFilteredRecipes] = useState([]);
 
-  // date state
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-
   const handleChangeCategory = (event) => {
-    const categoryId = event.target.value;
-    setCategoryName(categoryId);
-    const category = categories.categories.find(
-      (category) => category.id === categoryId
-    );
-    setSelectedCategory(category);
+    setSelectedCategory(event.target.value);
   };
 
   const handleChangeRecipe = (event) => {
-    const selectedRecipeId = event.target.value;
-    setRecipe(selectedRecipeId);
-
-    const recipe = categories.categories
-      .flatMap((category) => category.recipes)
-      .find((recipe) => recipe.id === selectedRecipeId);
-
-    setSelectedRecipe(recipe);
+    setSelectedRecipe(event.target.value);
   };
 
   const handleDateRangeChange = (dateRange) => {
-    setStartDate(dateRange[0]);
-    setEndDate(dateRange[1]);
+    const startDate = dateRange[0];
+    const endDate = dateRange[1];
 
     // Filter recipes based on the selected date range
     const filteredRecipes = categories.categories
@@ -60,20 +43,31 @@ function DashboardProvider({ children }) {
       })
       .filter((category) => category.recipes.length > 0);
 
+    console.log("filteredRecipes", filteredRecipes);
     setFilteredRecipes(filteredRecipes);
   };
 
   const value = useMemo(
     () => ({
       category: {
-        categoryName,
         selectedCategory,
         handleChangeCategory,
+        categoriesList: categories.categories.map((category) => (
+          <MenuItem key={category.id} value={category}>
+            {category.name}
+          </MenuItem>
+        )),
       },
       recipe: {
-        recipe,
         selectedRecipe,
         handleChangeRecipe,
+        recipesList: categories.categories.map((category) =>
+          category.recipes.map((recipe) => (
+            <MenuItem key={recipe.id} value={recipe}>
+              {recipe.name}
+            </MenuItem>
+          ))
+        ),
       },
       date: {
         handleDateRangeChange,
@@ -82,7 +76,7 @@ function DashboardProvider({ children }) {
         filteredRecipes,
       },
     }),
-    [categoryName, selectedCategory, recipe, selectedRecipe, startDate, endDate]
+    [selectedCategory, selectedRecipe, categories.categories]
   );
 
   return (
